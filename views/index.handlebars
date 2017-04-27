@@ -19,36 +19,20 @@
 	<div id="content" >
 		<h2>Hello World!!!</h2>
 	</div>
-	<div id="json-data">
-	</div>
-
 	<script>
-
-	function findValues() {
-		var myList;
-		$.getJSON('/json/test.json').done(function (data) {
-			myList = data;
-			var jsonData = document.getElementById("content");
-			jsonData.innerHTML += data.firstName;
-			console.log(data);
-		});
-	}
-/*		function findValues() {
-			var treeData;
-
-			var oReq = new XMLHttpRequest();
-			oReq.onload = reqListener;
-			oReq.open("get", "/json/test.json", true);
-			oReq.send();
-
-			function reqListener(e) {
-			    treeData = JSON.parse(this.responseText);
-			    console.log(treeData);
-				var theDiv = document.getElementById("json-data");
-				var content = document.createTextNode(treeData.firstName);
-				theDiv.appendChild(content);
-			    console.log(theDiv);
-			}
-		}*/
+		function findValues() {
+			var myList;
+			$.getJSON('/json/test.json').done(function (data) {
+				myList = data;
+				var jsonData = document.getElementById("content");
+				jsonData.innerHTML += "Container ID = ";
+				jsonData.innerHTML += data.containerID;
+				jsonData.innerHTML += "<br>";
+				jsonData.innerHTML += "Fill Level =";
+				jsonData.innerHTML += data.fillLevel;
+				jsonData.innerHTML += "<br>";
+				console.log(data);
+			});
+		}
 	</script>
 </body>
